@@ -1,0 +1,18 @@
+---
+ - name: lets do some modifications
+   hosts: all
+   become: yes
+   become_method: sudo
+   become_user: root
+   vars:
+      first_name: Shyam
+      House_name: Alugonda
+   tasks:
+   - name: Create a file
+     copy:
+        dest: /tmp/pass.txt
+        content: F9k9xycp
+   - name: Provide your name with slightly modification
+     debug:
+       msg: " My First name  is {{ first_name }} && house name is {{ House_name }} "
+...
